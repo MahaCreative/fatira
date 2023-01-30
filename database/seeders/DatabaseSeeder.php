@@ -49,18 +49,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password')
         ]);
         $user->assignRole('mahasiswa');
-        Profil::create([
-            'nama_lengkap' => 'guntur madjid',
-            'ttl' => '1998-01-17',
-            'telp' => '082194255717',
-            'alamat' => 'Jl diponegoro',
-            'nim' => '180250502054',
-            'fakultas_id' => '1',
-            'prodi_id' => '1',
-            'user_id' => '1',
-            'semester' => '10',
-            'thumbnail' => 'images/default_profil.png',
-        ]);
+
 
         DB::table('fakultas')->insert([
             ['kd_fak' => 'FIKOM',
