@@ -37,12 +37,18 @@ class DatabaseSeeder extends Seeder
         ]
         ]);
 
+        $userO= User::create([
+            'name' => 'operator',
+            'email' => 'operator@gmail.com',
+            'password' => bcrypt('password')
+        ]);
+        $userO->assignRole('operator');
        $user= User::create([
             'name' => 'gunturmadjid',
             'email' => 'gunturmadjid.3@gmail.com',
             'password' => bcrypt('password')
         ]);
-        $user->assignRole('operator');
+        $user->assignRole('mahasiswa');
         Profil::create([
             'nama_lengkap' => 'guntur madjid',
             'ttl' => '1998-01-17',
