@@ -161,9 +161,6 @@ export default function Drawer({ openDrawer, setOpenDrawer }) {
                                     <Link className="uppercase text-white group-hover:text-gray-300">
                                         Logout
                                     </Link>
-                                    <Link className="uppercase text-white group-hover:text-gray-300">
-                                        Logout
-                                    </Link>
                                 </Link>
                             </div>
                         )}
