@@ -22,7 +22,7 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
-        $url = $request->file('thumbnail') ? $request->file('thumbnail')->store('public/images/profile') : null;
+        $url = $request->file('thumbnail') ? $request->file('thumbnail')->store('images/profile') : null;
         // dd($request->all());
         $roles = $request->user()->roles()->first();
        if($roles->name === 'mahasiswa'){

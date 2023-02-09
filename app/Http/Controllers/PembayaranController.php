@@ -10,7 +10,7 @@ class PembayaranController extends Controller
     public function store(Request $request){
         $countPembayaran = UploadPembayaranRegistrasi::count();
         $code = 'PB/'.now()->format('Y-m-d').'/FK/'.$request->fakultas_id.'/PD/'.$request->prodi_id.'/KD00/'.$countPembayaran;
-        $url = $request->file('bukti_pembayaran') ? $request->file('bukti_pembayaran')->store($request->nim. 'public/bukti_pembayaran') : null;
+        $url = $request->file('bukti_pembayaran') ? $request->file('bukti_pembayaran')->store($request->nim. '/bukti_pembayaran') : null;
         $pembayaran = UploadPembayaranRegistrasi::create([
             'registrasi_id' => $request->registrasi_id,
             'user_id' => $request->user()->id,
