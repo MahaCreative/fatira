@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head, Link, usePage } from "@inertiajs/react";
+import { Head, Link, router, usePage } from "@inertiajs/react";
 import Modal from "@/Components/Modal";
 import Tables from "@/Components/Table";
 import { Table } from "@mui/material";
@@ -9,7 +9,12 @@ import PrimaryButton from "@/Components/PrimaryButton";
 export default function DataRegistrasi() {
     const [openModal, setOpenModal] = useState(false);
     const { registrasi } = usePage().props;
-    console.log(registrasi);
+    const [model, setModel] = useState(null);
+
+    const prosesRegistrasi = (e) => {
+        setModel(e);
+        router.post(route("proses-registrasi", model));
+    };
     return (
         <div>
             <AuthenticatedLayout
@@ -66,7 +71,10 @@ export default function DataRegistrasi() {
                                 </Tables.Thead>
                                 <Tables.Tbody>
                                     {registrasi.map((item, key) => (
-                                        <tr className="capitalize">
+                                        <tr
+                                            key={key + 1}
+                                            className="capitalize"
+                                        >
                                             <Tables.Td className="text-sm font-light">
                                                 <div className="flex gap-3">
                                                     <p>Nama: </p>
@@ -241,12 +249,22 @@ export default function DataRegistrasi() {
                                                 </a>
                                             </Tables.Td>
                                             <Tables.Td className="flex flex-col gap-2">
-                                                <PrimaryButton>
-                                                    Setujui Registrasi
-                                                </PrimaryButton>
-                                                <PrimaryButton>
-                                                    Setujui Pembayaran
-                                                </PrimaryButton>
+                                                {item.bukti_regis ? (
+                                                    <p className="py-2.5 px-3 text-[8pt] rounded-md bg-green-500 text-white">
+                                                        Registrasi Telah
+                                                        Diproses
+                                                    </p>
+                                                ) : (
+                                                    <PrimaryButton
+                                                        onClick={() =>
+                                                            prosesRegistrasi(
+                                                                item
+                                                            )
+                                                        }
+                                                    >
+                                                        Setujui Registrasi
+                                                    </PrimaryButton>
+                                                )}
                                             </Tables.Td>
                                         </tr>
                                     ))}

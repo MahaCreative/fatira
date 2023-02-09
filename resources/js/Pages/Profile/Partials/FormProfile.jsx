@@ -83,7 +83,7 @@ export default function FormProfile() {
                         onSubmit={profil ? updateHandler : submitHandler}
                         encType="multipart/form-data"
                     >
-                        <div className="flex gap-3">
+                        <div className="">
                             <div>
                                 {roles.name === "mahasiswa" && (
                                     <>

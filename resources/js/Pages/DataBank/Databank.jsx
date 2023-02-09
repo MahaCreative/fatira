@@ -6,9 +6,8 @@ import Modal from "@/Components/Modal";
 import Form from "./Form";
 import SecondaryButton from "@/Components/SecondaryButton";
 export default function Databank() {
-    const { auth } = usePage().props;
     const [openModal, setOpenModal] = useState(false);
-    const { bank } = usePage().props;
+    const { banks } = usePage().props;
     const [model, setModel] = useState(null);
     const editModal = (data) => {
         setModel(data);
@@ -19,7 +18,6 @@ export default function Databank() {
     };
     return (
         <AuthenticatedLayout
-            auth={auth}
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
                     Data Bank
@@ -50,7 +48,7 @@ export default function Databank() {
                         Tambah Bank
                     </PrimaryButton>
                     <div className="my-2">
-                        {bank.map((item, key) => (
+                        {banks.map((item, key) => (
                             <div>
                                 <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                                     <p>Nama Rekening : {item.nama_rekening}</p>

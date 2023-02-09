@@ -34,7 +34,7 @@ export default function FormPembayaran({ model, editModel, setModel }) {
     };
 
     return (
-        <div className=" px-4 py-2.5 items-center flex justify-center w-[450px]">
+        <div className=" px-4 py-2.5 items-center flex justify-center w-[390px]">
             <form
                 action=""
                 encType="multipart/form-data"

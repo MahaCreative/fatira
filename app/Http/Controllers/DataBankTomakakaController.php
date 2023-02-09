@@ -9,7 +9,7 @@ class DataBankTomakakaController extends Controller
 {
     public function index(){
         $bank = DataBankTomakaka::all();
-        return inertia('DataBank/Databank', ['bank' => $bank]);
+        return inertia('DataBank/Databank', ['banks' => $bank]);
     }
     public function store(Request  $request){
         DataBankTomakaka::create([

@@ -11,6 +11,7 @@ export default function Form({ model, setModel, setOpenModal }) {
         nama_rekening: "",
         nomor_rekening: "",
     });
+
     const changeHandler = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
@@ -41,7 +42,7 @@ export default function Form({ model, setModel, setOpenModal }) {
             nomor_rekening: model ? model.nomor_rekening : "",
         });
     }, [model]);
-
+    console.log(bank);
     return (
         <div className=" px-4 py-2.5 items-center flex justify-center w-[450px]">
             <form

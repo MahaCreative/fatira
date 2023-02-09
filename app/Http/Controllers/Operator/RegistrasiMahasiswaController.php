@@ -13,7 +13,7 @@ class RegistrasiMahasiswaController extends Controller
             $q->with('prodi','fakultas')->first();
         }, 'bukti_pembayaran' => function($q) {
             $q->first();
-        }])->latest()->get();
+        }, 'bukti_regis'])->latest()->get();
         // dd($regis);
         return inertia('Operator/Registrasi/DataRegistrasi', ['registrasi' => $regis]);
     }

@@ -18,4 +18,7 @@ class Registrasi extends Model
     public function bukti_pembayaran(){
         return $this->hasOne(UploadPembayaranRegistrasi::class);
     }
+    public function bukti_regis(){
+        return $this->hasOne(BuktiRegistrasi::class, 'registrasi_id');
+    }
 }

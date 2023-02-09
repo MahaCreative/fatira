@@ -33,10 +33,10 @@ export default function Form() {
             <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div>
                     <div className="">
-                        <h2 className="text-md font-medium text-gray-900">
+                        <h2 className="font-bold text-md  text-gray-900">
                             Data Mahasiswa
                         </h2>
-                        <div className="flex justify-between capitalize">
+                        <div className="text-[8pt] flex justify-between capitalize">
                             <div>
                                 <p>Nama : {profil.nama_lengkap}</p>
                                 <p>Nim : {profil.nim}</p>

@@ -60,7 +60,7 @@ export default function HistoryRegistrasi() {
                                         key={key + 1}
                                         className="border shadow-sm shadow-gray-400/40 py-2.5 px-4 my-2 rounded-md"
                                     >
-                                        <div className="capitalize text-sm border-b flex justify-between items-center">
+                                        <div className="capitalize text-sm border-b items-center">
                                             <div>
                                                 <h2 className=" font-semibold text-orange-500">
                                                     {item.status_registrasi}
@@ -178,8 +178,7 @@ export default function HistoryRegistrasi() {
                                                 </div>
                                                 <div>
                                                     <p className=" text-right text-[8pt] font-extralight text-gray-500">
-                                                        Status Dilihat oleh
-                                                        Operator
+                                                        Status Registrasi Anda
                                                     </p>
                                                     <p
                                                         className={clsx(
@@ -190,25 +189,40 @@ export default function HistoryRegistrasi() {
                                                             "font-bold text-[8pt] backdrop-blur-sm py-1.5 px-3 rounded-md "
                                                         )}
                                                     >
-                                                        {item.status_registrasi}
+                                                        {item.status_registrasi ===
+                                                        "Registrasi Telah Di Terima"
+                                                            ? "Anda Telah Berhasil di Registrasi"
+                                                            : item.status_registrasi}
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="flex justify-between my-3 items-center">
-                                            <h2 className=" font-semibold ">
-                                                Registrasi Semester{" "}
-                                                {item.semester}
-                                            </h2>
-                                            <div className="flex gap-3">
-                                                <button
-                                                    onClick={() =>
-                                                        uploadModalHandler(item)
-                                                    }
-                                                    className="py-1.5 px-3 rounded-md bg-green-400 text-white font-semibold text-sm"
-                                                >
-                                                    Upload Bukti Pembayaran
-                                                </button>
+                                        <div className=" my-3 items-center">
+                                            <div>
+                                                <h2 className=" font-semibold ">
+                                                    Registrasi Semester{" "}
+                                                    {item.semester}
+                                                </h2>
+                                                {item.bukti_regis && (
+                                                    <Link className="py-2.5 px-3 bg-green-500 text-[8pt] text-white rounded-md">
+                                                        Download Bukti
+                                                        Registrasi
+                                                    </Link>
+                                                )}
+                                            </div>
+                                            <div className="">
+                                                {!item.bukti_pembayaran && (
+                                                    <button
+                                                        onClick={() =>
+                                                            uploadModalHandler(
+                                                                item
+                                                            )
+                                                        }
+                                                        className="py-1.5 px-3 rounded-md bg-green-400 text-white font-semibold text-sm"
+                                                    >
+                                                        Upload Bukti Pembayaran
+                                                    </button>
+                                                )}
                                             </div>
                                         </div>
                                     </div>

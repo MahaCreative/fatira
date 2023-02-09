@@ -12,7 +12,7 @@ export default function Authenticated({ auth, header, children }) {
     useEffect(() => {
         flash.type && toast[flash.type](flash.message);
     });
-    console.log(flash);
+
     return (
         <div className="min-h-screen bg-gray-100 flex">
             <Toaster />

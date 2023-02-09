@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class HistoryRegistrasiController extends Controller
 {
     public function index(Request $request){
-        $registrasi = Registrasi::with('bukti_pembayaran')->where('user_id', $request->user()->id)->latest()->get();
+        $registrasi = Registrasi::with('bukti_pembayaran', 'bukti_regis')->where('user_id', $request->user()->id)->latest()->get();
         // dd($registrasi);
         return inertia('History/HistoryRegistrasi', ['registrasi' => $registrasi]);
     }

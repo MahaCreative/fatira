@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CetakBuktiRegistrasiController;
 use App\Http\Controllers\DataBankTomakakaController;
 use App\Http\Controllers\HistoryPembayaranController;
 use App\Http\Controllers\HistoryRegistrasiController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\Operator\ProdiController;
 use App\Http\Controllers\Operator\RegistrasiMahasiswaController as OperatorRegistrasiMahasiswaController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProsesRegistrasiController;
 use App\Http\Controllers\RegistrasiMahasiswaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
@@ -75,8 +77,9 @@ Route::middleware('auth')->group(function () {
     Route::put('admin-fakultas', [FakultasController::class, 'update'])->name('admin-fakultas');
     Route::delete('admin-fakultas', [FakultasController::class, 'delete'])->name('admin-fakultas');
     // Route::get('admin-registrasi-mahasiswa', [OperatorRegistrasiMahasiswaController::class, 'index']);
-
+    Route::post('proses-registrasi-mahasiswa', [ProsesRegistrasiController::class, 'store'])->name('proses-registrasi');
     });
+    Route::get('cetak-bukti-registrasi/{id}', [CetakBuktiRegistrasiController::class, 'index'])->name('cetak-bukti-regi');
 });
 
 require __DIR__.'/auth.php';

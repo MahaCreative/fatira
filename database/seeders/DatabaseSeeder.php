@@ -26,6 +26,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+DB::table('roles')->insert([
+    ['nama_bank' => 'BRI']
+]);
+
         DB::table('roles')->insert([
         [
             'name' => 'operator',

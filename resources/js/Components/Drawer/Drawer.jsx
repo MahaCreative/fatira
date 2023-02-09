@@ -154,16 +154,16 @@ export default function Drawer({ openDrawer, setOpenDrawer }) {
                                         Data Registrasi Mahasiswa
                                     </Link>
                                 </Link>
-                                <Link
-                                    href={route("logout")}
-                                    className="block px-4 bg-orange-500/50 my-3 py-2.5 hover:bg-orange-500 group hover:cursor-pointer"
-                                >
-                                    <Link className="uppercase text-white group-hover:text-gray-300">
-                                        Logout
-                                    </Link>
-                                </Link>
                             </div>
                         )}
+                        <Link
+                            href={route("logout")}
+                            className="block px-4 bg-orange-500/50 my-3 py-2.5 hover:bg-orange-500 group hover:cursor-pointer"
+                        >
+                            <Link className="uppercase text-white group-hover:text-gray-300">
+                                Logout
+                            </Link>
+                        </Link>
                     </div>
                 </div>
             </div>
