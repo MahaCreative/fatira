@@ -10,11 +10,11 @@ class RegistrasiMahasiswaController extends Controller
 {
     public function index(){
         $regis = Registrasi::with(['profil' => function($q) {
-            $q->with('prodi','fakultas')->first();
+            $q->with('prodi','fakultas')->get();
         }, 'bukti_pembayaran' => function($q) {
-            $q->first();
+            $q->get();
         }, 'bukti_regis'])->latest()->get();
-        // dd($regis);
+
         return inertia('Operator/Registrasi/DataRegistrasi', ['registrasi' => $regis]);
     }
 }

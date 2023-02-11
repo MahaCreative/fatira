@@ -67,7 +67,7 @@ class ProfileController extends Controller
     public function profileUpdate(Request $request){
 
         $user = $request->user()->profile;
-        $url = $request->file('thumbnail') ? $request->file('thumbnail')->store('images/profile') : $user->thumbnail;
+        $url = $request->file('thumbnail') ? $request->file('thumbnail')->store('/images/profile') : $user->thumbnail;
         $user->update([
             'nama_lengkap' => $request->data['nama_lengkap'],
             'ttl' => $request->data['ttl'],

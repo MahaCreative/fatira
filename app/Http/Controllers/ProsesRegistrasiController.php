@@ -11,7 +11,7 @@ class ProsesRegistrasiController extends Controller
     public function store(Request $request){
         // dd($request->all());
         $regis = Registrasi::with('profil','bukti_pembayaran')->where('id',$request->id)->first();
-
+        // dd($regis);
         $regis->update([
             'petugas_id' => $request->user()->id,
             'tanggal_disetujui' => now()->format('Y-m-d'),
