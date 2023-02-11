@@ -14,7 +14,7 @@ export default function Authenticated({ auth, header, children }) {
     });
 
     return (
-        <div className="min-h-screen bg-gray-100 flex">
+        <div className="min-h-screen bg-gray-100 flex text-[8pt]">
             <Toaster />
             <Drawer openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
             <div className="w-full">

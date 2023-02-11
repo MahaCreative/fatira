@@ -10,7 +10,7 @@ export default function DataRegistrasi() {
     const [openModal, setOpenModal] = useState(false);
     const { registrasi } = usePage().props;
     const [model, setModel] = useState(null);
-
+    console.log(registrasi[0].bukti_pembayaran == null ? "abg" : "as");
     const prosesRegistrasi = (e) => {
         setModel(e);
         router.post(route("proses-registrasi", model));
@@ -183,48 +183,61 @@ export default function DataRegistrasi() {
                                                     </a>
                                                 </div>
                                             </Tables.Td>
-                                            <Tables.Td>
-                                                <div className="flex gap-3">
-                                                    <p>Nama Rekening: </p>
+                                            {item.bukti_pembayaran !== null ? (
+                                                <Tables.Td>
+                                                    <div className="flex gap-3">
+                                                        <p>Nama Rekening: </p>
+                                                        <p>
+                                                            {
+                                                                item
+                                                                    .bukti_pembayaran
+                                                                    .nama_rekening
+                                                            }
+                                                        </p>
+                                                    </div>
+                                                    <div className="flex gap-3">
+                                                        <p>Nomor Rekening: </p>
+                                                        <p>
+                                                            {
+                                                                item
+                                                                    .bukti_pembayaran
+                                                                    .nomor_rekening
+                                                            }
+                                                        </p>
+                                                    </div>
+                                                    <div className="flex gap-3">
+                                                        <p>
+                                                            Tanggal Pembayaran:{" "}
+                                                        </p>
+                                                        <p>
+                                                            {
+                                                                item
+                                                                    .bukti_pembayaran
+                                                                    .tanggal_pembayaran
+                                                            }
+                                                        </p>
+                                                    </div>
+                                                    <div className="flex gap-3">
+                                                        <p>
+                                                            Tanggal Di Setujui:{" "}
+                                                        </p>
+                                                        <p>
+                                                            {
+                                                                item
+                                                                    .bukti_pembayaran
+                                                                    .tanggal_disetujui
+                                                            }
+                                                        </p>
+                                                    </div>
+                                                </Tables.Td>
+                                            ) : (
+                                                <Tables.Td>
                                                     <p>
-                                                        {
-                                                            item
-                                                                .bukti_pembayaran
-                                                                .nama_rekening
-                                                        }
+                                                        Upload Bukti Pembayaran
+                                                        Belum Ada
                                                     </p>
-                                                </div>
-                                                <div className="flex gap-3">
-                                                    <p>Nomor Rekening: </p>
-                                                    <p>
-                                                        {
-                                                            item
-                                                                .bukti_pembayaran
-                                                                .nomor_rekening
-                                                        }
-                                                    </p>
-                                                </div>
-                                                <div className="flex gap-3">
-                                                    <p>Tanggal Pembayaran: </p>
-                                                    <p>
-                                                        {
-                                                            item
-                                                                .bukti_pembayaran
-                                                                .tanggal_pembayaran
-                                                        }
-                                                    </p>
-                                                </div>
-                                                <div className="flex gap-3">
-                                                    <p>Tanggal Di Setujui: </p>
-                                                    <p>
-                                                        {
-                                                            item
-                                                                .bukti_pembayaran
-                                                                .tanggal_disetujui
-                                                        }
-                                                    </p>
-                                                </div>
-                                            </Tables.Td>
+                                                </Tables.Td>
+                                            )}
                                             <Tables.Td>
                                                 <div className="flex gap-3">
                                                     <p>Status Regis: </p>
@@ -238,15 +251,25 @@ export default function DataRegistrasi() {
                                                         {item.status_pembayaran}
                                                     </p>
                                                 </div>
-                                                <a
-                                                    href={
-                                                        "storage/" +
-                                                        item.bukti_pembayaran
-                                                            .bukti_pembayaran
-                                                    }
-                                                >
-                                                    Lihat Bukti Pembayaran
-                                                </a>
+                                                {item.bukti_pembayaran !==
+                                                null ? (
+                                                    <a
+                                                        href={
+                                                            "storage/" +
+                                                            item
+                                                                .bukti_pembayaran
+                                                                .bukti_pembayaran
+                                                        }
+                                                    >
+                                                        Lihat Bukti Pembayaran
+                                                    </a>
+                                                ) : (
+                                                    <p>
+                                                        {" "}
+                                                        Bukti Pembayaran Belum
+                                                        Di Upload
+                                                    </p>
+                                                )}
                                             </Tables.Td>
                                             <Tables.Td className="flex flex-col gap-2">
                                                 {item.bukti_regis ? (

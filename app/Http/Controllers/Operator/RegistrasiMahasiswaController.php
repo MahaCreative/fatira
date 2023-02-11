@@ -14,7 +14,12 @@ class RegistrasiMahasiswaController extends Controller
         }, 'bukti_pembayaran' => function($q) {
             $q->get();
         }, 'bukti_regis'])->latest()->get();
-
+        $registrasi = Registrasi::where('status_lihat_registrasi', 'belum di lihat')->get();
+        foreach($registrasi as $item){
+            $item->update([
+                'status_lihat_registrasi' => 'di lihat',
+            ]);
+        }
         return inertia('Operator/Registrasi/DataRegistrasi', ['registrasi' => $regis]);
     }
 }

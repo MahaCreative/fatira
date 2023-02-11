@@ -9,7 +9,7 @@ export default function Drawer({ openDrawer, setOpenDrawer }) {
         <div className="relative z-[9999]">
             <div
                 className={clsx(
-                    openDrawer ? "w-[340px] left-0" : "-left-96",
+                    openDrawer ? "w-[340px] left-0" : "-left-[999px]",
                     " min-h-screen fixed top-0 left-0 bg-slate-900/90 duration-300 backdrop-blur-sm"
                 )}
             >
@@ -21,7 +21,7 @@ export default function Drawer({ openDrawer, setOpenDrawer }) {
                         <CloseIcon fontSize="small" color="inherit" />
                     </button>
                     <div className="static inline-block mt-24 w-full ">
-                        <div className="relative w-full flex gap-3 px-4 bg-orange-600/50 py-2.5">
+                        <div className="relative w-full flex gap-3 px-4 bg-orange-600/50 py-2.5 ">
                             <div className="w-20 h-20 overflow-hidden rounded-full">
                                 <img
                                     src={
@@ -32,7 +32,7 @@ export default function Drawer({ openDrawer, setOpenDrawer }) {
                                     alt=""
                                 />
                             </div>
-                            <div className="relative">
+                            <div className="relative flex flex-col gap-2">
                                 <p className="font-mono font-bold text-white text-2xl">
                                     {profil
                                         ? profil.nama_lengkap
@@ -47,7 +47,7 @@ export default function Drawer({ openDrawer, setOpenDrawer }) {
                                 )}
                                 <Link
                                     href={route("profile.edit")}
-                                    className="text-white absolute bottom-0 font-mono font-extralight text-sm hover:text-orange-500"
+                                    className="text-white font-mono font-extralight text-sm hover:text-orange-500"
                                 >
                                     Setting Profile
                                 </Link>

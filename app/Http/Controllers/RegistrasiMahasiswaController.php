@@ -18,6 +18,7 @@ class RegistrasiMahasiswaController extends Controller
         $krs = $request->file('krs') ? $request->file('krs')->store($request->nim.'/File_Regis/krs') : null;
         $blanko = $request->file('blanko') ? $request->file('blanko')->store($request->nim.'/File_Regis/blanko') : null;
         $kwitansi = $request->file('kwitansi') ? $request->file('kwitansi')->store($request->nim.'/File_Regis/kwitansi') : null;
+        // dd($request->user());
         $registrasi = Registrasi::create([
             'kd_registrasi' => $kd_registrasi,
             'jenis_registrasi_id' => $request->jenis_registrasi_id,
